@@ -1,0 +1,68 @@
+body {
+  min-height: 100vh;
+  padding: 2rem;
+  font-size: calc(10px + 2vmin);
+  font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;;
+}
+
+a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #4943da;
+}
+
+.app_header {
+  color: "#0a0a0a";
+  font-size: 56px;
+}
+
+.card-wrapper {
+  transition: all 0.5s;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.fade-text {
+  max-height: 240px;
+  font-size: 1.2rem;
+  color: #8b8b8b;
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent);
+  mask-image: linear-gradient(180deg, #000 30%, transparent);
+}
+
+.custom-chip {
+  font-size: 10px;
+  background-color: #4943da;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 4px 12px;
+}
+
+.custom-header-v3 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  color: #8b8b8b;
+}
+
+.custom-header-v2 {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: #8b8b8b;
+}
+
+.primary-button {
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  border: none;
+  background: #55efc4;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  padding: 8px 18px;
+}
