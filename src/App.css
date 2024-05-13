@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   min-height: 100vh;
   padding: 2rem;
@@ -16,15 +21,7 @@ a {
   font-size: 56px;
 }
 
-.card-wrapper {
-  transition: all 0.5s;
-}
-
-.card-wrapper:hover {
-  transform: scale(1.02);
-}
-
-.fade-text {
+.faded-text {
   max-height: 240px;
   font-size: 1.2rem;
   color: #8b8b8b;
@@ -40,29 +37,71 @@ a {
   padding: 4px 12px;
 }
 
-.custom-header-v3 {
+.custom-text {
   font-size: 13px;
-  font-weight: 600;
   letter-spacing: 1px;
+  line-height: 1.2;
   margin-bottom: 3px;
   color: #8b8b8b;
 }
-
-.custom-header-v2 {
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  line-height: 1.5;
-  color: #8b8b8b;
+.header-v3 { 
+  font-weight: 600;
 }
 
-.primary-button {
+.header-v6 { 
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+.header-v2 {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.button {
   cursor: pointer;
   border-radius: 8px;
   width: 100%;
   border: none;
-  background: #55efc4;
   color: rgb(0, 0, 0);
   font-weight: 500;
   padding: 8px 18px;
+  margin: 4px 0;
+}
+
+.button.flex-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-btn {
+  background: #55efc4;
+}
+
+.secondary-btn {
+  background: #1971ec;
+  color: #FFFFFF;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  padding: 1rem 1em;
+}
+.grid-item {
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  flex: 1;
+  padding: 1rem;
+  transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.grid-item:hover {
+  transform: scale(1.02);
 }
