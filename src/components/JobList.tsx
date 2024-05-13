@@ -38,6 +38,7 @@ export default function JobList() {
     if (page > 0) {
       fetchNextJobs();
     }
+    // eslint-disable-next-line
   }, [page, dispatch]);
 
   return (

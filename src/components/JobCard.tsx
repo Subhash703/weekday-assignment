@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Chip, Avatar, Typography } from '@mui/material';
+import { Box, Chip, Avatar, Typography } from '@mui/material';
 import React from 'react'
 import { Job } from '../redux/types';
 import CustomButton from './CustomButton';
@@ -26,11 +26,11 @@ const JobCard: React.FC<{ jobData: Job }> = ({ jobData }) => {
       <Chip size='small' label={`⏳ Posted ${Math.floor(Math.random()*100)/2} days ago`} />
       <Box style={{display: 'flex', gap: '2rem', marginTop: 10}}>
         <Box>
-          <Avatar alt={companyName} src={logoUrl} />
+          <Avatar alt={jdUid} src={logoUrl} />
         </Box>
         <Box>
           <Typography variant="h5">
-            <a href={`${jdLink}`} target="_blank" rel="noopener noreferrer">
+            <a href={`${jdLink}`} target="_blank" rel="noreferrer">
               {companyName}
             </a>
           </Typography>

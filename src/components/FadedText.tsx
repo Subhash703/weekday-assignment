@@ -5,7 +5,7 @@ const FadedText: React.FC<{text: string, redirectUri: string}> = ({text, redirec
     <>
         <p className="faded-text">{text}</p>
         <div style={{textAlign: 'center'}}>
-        <a href={redirectUri} target="_blank" >View job</a>
+        <a href={redirectUri} target="_blank" rel='noreferrer' >View job</a>
         </div>
     </>
   )

@@ -1,5 +1,5 @@
 import { getSampleJdJSON } from "../../data";
-import { createAsyncThunk, createSlice, Dispatch } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Job } from "../types";
 
 interface JobState {
