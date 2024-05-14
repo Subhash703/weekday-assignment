@@ -5,8 +5,6 @@
 
 body {
   min-height: 100vh;
-  font-size: calc(10px + 2vmin);
-  font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
   overflow-x: hidden;
 }
 
@@ -22,6 +20,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
   top: 0;
   z-index: 10;
   background-color: #FFFFFF;
@@ -44,7 +43,8 @@ a {
   align-items: center;
   flex-direction: column;
   max-width: 80vw;
-  margin-left: 10vw;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1rem 1em;
 }
 
@@ -141,7 +141,7 @@ a {
 .card-content {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+  justify-content: space-between;
 }
 
 /* Filter  bar */
@@ -160,28 +160,28 @@ a {
 }
 
 .text-xs {
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.25rem; /* 20px */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-xs {
-  font-size: 0.75rem; /* 12px */
-  line-height: 1rem; /* 16px */
+  font-size: 0.75rem;
+  line-height: 1rem;
 }	
 
 .text-sm	{
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.25rem; /* 20px */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-lg {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.75rem; /* 28px */
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }	
 
 .text-xl	{
-  font-size: 1.25rem; /* 20px */
-  line-height: 1.75rem; /* 28px */
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .w-full {
