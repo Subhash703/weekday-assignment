@@ -21,6 +21,15 @@ a {
   font-size: 56px;
 }
 
+.job-list-wrapper {
+  display: 'flex';
+  justify-content: 'center'; 
+  align-items: 'center';
+  flex-direction: 'column';
+  max-width: 80vw;
+  padding: 1rem 1em;
+}
+
 .faded-text {
   max-height: 240px;
   font-size: 1.2rem;
@@ -89,8 +98,8 @@ a {
   display: grid;
   grid-gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  padding: 1rem 1em;
 }
+
 .grid-item {
   border-radius: 24px;
   display: flex;
@@ -104,4 +113,49 @@ a {
 
 .grid-item:hover {
   transform: scale(1.02);
+}
+
+
+/* Filter  bar */
+
+.filter-view {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin: 1rem 0;
+}
+
+
+.filter-view .filter {
+  min-width: 220px;
+}
+
+.text-xs {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+.text-xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}	
+
+.text-sm	{
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+.text-lg {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}	
+
+.text-xl	{
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.w-full {
+  width: 100%;
 }

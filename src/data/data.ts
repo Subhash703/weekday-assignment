@@ -976,4 +976,19 @@ export const getSampleJdJSON = () => {
         logoUrl: "https://logo.clearbit.com/adobe.com",
       },
     ];
-  };
+};
+
+
+export const roles = [
+  "backend", "fullstack", "frontend", "hr", "ios", "flutter", "react-natie", "devops","android"
+];
+
+export const empRanges = [
+  "1-10","11-20","21-50","51-100", "101-200","201-500", "500+"
+];
+
+export const expOptions = ["1","2","3","4","5","6","7","8","9","10"];
+
+export const workFromOptions = ["remote", "in-office", "hyrid"];
+
+export const minBasePayOptions = ["0L","10L","20L", "30L", "40L", "50L","60L", "70L", "80L"];
