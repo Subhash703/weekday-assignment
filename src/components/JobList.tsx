@@ -67,7 +67,18 @@ export default function JobList() {
   useEffect(() => {
     fetchNextJobs();
     // eslint-disable-next-line
-  }, [filteredRoles, filteredNoOfEmps, filtredExp, filteredWorkOptions, filteredMinBasePay, searchedCompany])
+  }, [filteredRoles, filteredNoOfEmps, filtredExp, filteredWorkOptions, filteredMinBasePay])
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      fetchNextJobs();
+    }, 600);
+
+    return () => {
+      clearTimeout(handler);
+    };
+    // eslint-disable-next-line
+  }, [searchedCompany])
 
   const getCapitalizedValue = (text: string, postFix?: string) => {
     return text.charAt(0).toUpperCase() + text.slice(1) + (postFix ? postFix : '');

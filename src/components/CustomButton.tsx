@@ -8,9 +8,10 @@ interface CustomButtonProps {
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({title, showIcons = true, icons, onClickAction}) => {
-    const imageIcon = (icon: string) => {
+    const imageIcon = (icon: string, key: number) => {
         return (
-            <Avatar 
+            <Avatar
+                key={key} 
                 style={{
                     height: '24px', 
                     width: '24px', 
@@ -23,7 +24,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({title, showIcons = true, ico
     }
     return (
         <button className='button secondary-btn flex-content' onClick={onClickAction}> 
-            {icons && icons.map(icon => imageIcon(icon))}
+            {icons && icons.map((icon, index) => imageIcon(icon, index))}
             {title}
         </button>
     )
