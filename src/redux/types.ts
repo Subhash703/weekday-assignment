@@ -11,6 +11,7 @@ export interface Job {
     jobRole: string;
     companyName: string;
     logoUrl: string;
+    publishedOn?: string | null;
 }
 
 export interface FilterOptions {

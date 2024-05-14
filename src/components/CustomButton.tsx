@@ -1,3 +1,4 @@
+import { Avatar } from '@mui/material';
 import React from 'react'
 interface CustomButtonProps {
     title: string;
@@ -9,7 +10,15 @@ interface CustomButtonProps {
 const CustomButton: React.FC<CustomButtonProps> = ({title, showIcons = true, icons, onClickAction}) => {
     const imageIcon = (icon: string) => {
         return (
-            <img src={icon} alt={icon} style={{height: '14px', width: '14px', objectFit: 'cover'}} />
+            <Avatar 
+                style={{
+                    height: '24px', 
+                    width: '24px', 
+                    marginRight: '12px', 
+                    opacity: 0.7
+                }} 
+                alt={`${icon}`} src={icon} 
+            />
         )
     }
     return (

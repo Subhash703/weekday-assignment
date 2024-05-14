@@ -19,11 +19,12 @@ const JobCard: React.FC<{ jobData: Job }> = ({ jobData }) => {
     jobRole,
     companyName,
     logoUrl,
+    publishedOn
   } = jobData;
 
   return (
     <div className="card-content">
-      <Chip size='small' label={`⏳ Posted ${Math.floor(Math.random()*100)/2} days ago`} />
+      {publishedOn && <Chip size='small' label={`⏳ Posted ${publishedOn} days ago`} />}
       <Box style={{display: 'flex', gap: '2rem', marginTop: 10}}>
         <Box className="company-logo-url">
           <Avatar alt={jdUid} src={logoUrl} />
@@ -76,7 +77,8 @@ const JobCard: React.FC<{ jobData: Job }> = ({ jobData }) => {
         </div>
       </div>
       <button className='button primary-btn mt-12'> ⚡ Easy Apply </button>
-      <CustomButton title='Unlock referral asks'/>
+      {/* Pass actual refferral user's images in icons array */}
+      <CustomButton title='Unlock referral asks' icons={[logoUrl, logoUrl]}/> 
     </div>
   );
 };

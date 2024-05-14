@@ -138,6 +138,11 @@ a {
   transform: scale(1.02);
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
 
 /* Filter  bar */
 
