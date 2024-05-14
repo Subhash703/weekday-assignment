@@ -25,7 +25,7 @@ const JobCard: React.FC<{ jobData: Job }> = ({ jobData }) => {
     <div className="card-content">
       <Chip size='small' label={`⏳ Posted ${Math.floor(Math.random()*100)/2} days ago`} />
       <Box style={{display: 'flex', gap: '2rem', marginTop: 10}}>
-        <Box>
+        <Box className="company-logo-url">
           <Avatar alt={jdUid} src={logoUrl} />
         </Box>
         <Box>
@@ -61,16 +61,21 @@ const JobCard: React.FC<{ jobData: Job }> = ({ jobData }) => {
       <div className='info-container poc-info-container'>
         <h6 className='custom-text header-v6'>Skills</h6>
         <div className="hard-lang-container" style={{ margin: '0px'}}>
+          {/* Hardcoded as API does not give any Skils options */}
           <div style={{display: 'flex', gap: 10,}}>
-            <CustomChip content={'Fullstack Engineer'}/>
+            <CustomChip content={' EnFullstackgineer'}/>
             <CustomChip content={'NodeJS'}/>
             <CustomChip content={'React JS'}/>
           </div>
-          <h3 className='custom-text header-v3' style={{marginTop: 10}}>Minimum Experience</h3>
-          <h2 className='custom-text header-v2'>{minExp}+ years</h2>
+          {minExp && 
+            <>
+              <h3 className='custom-text header-v3' style={{marginTop: 10}}>Minimum Experience</h3>
+              <h2 className='custom-text header-v2'>{minExp}+ years</h2>
+            </>
+            }
         </div>
       </div>
-      <button className='button primary-btn'> ⚡ Easy Apply </button>
+      <button className='button primary-btn mt-12'> ⚡ Easy Apply </button>
       <CustomButton title='Unlock referral asks'/>
     </div>
   );

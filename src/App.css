@@ -5,9 +5,9 @@
 
 body {
   min-height: 100vh;
-  padding: 2rem;
   font-size: calc(10px + 2vmin);
-  font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;;
+  font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -16,23 +16,41 @@ a {
   color: #4943da;
 }
 
-.app_header {
+.header-container {
+  width: 100vw;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.header-logo {
+  width: 136px;
+  aspect-ratio: auto 136 / 32;
+  height: 32px;
+}
+.app-header {
   color: "#0a0a0a";
-  font-size: 56px;
+  font-size: 2rem;
 }
 
 .job-list-wrapper {
-  display: 'flex';
-  justify-content: 'center'; 
-  align-items: 'center';
-  flex-direction: 'column';
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
   max-width: 80vw;
+  margin-left: 10vw;
   padding: 1rem 1em;
 }
 
 .faded-text {
-  max-height: 240px;
-  font-size: 1.2rem;
+  max-height: 100px;
+  font-size: 1rem;
   color: #8b8b8b;
   -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent);
   mask-image: linear-gradient(180deg, #000 30%, transparent);
@@ -53,6 +71,15 @@ a {
   margin-bottom: 3px;
   color: #8b8b8b;
 }
+
+.header-v1 {
+  font-size: 2rem;
+}
+
+.header-v2 {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
 .header-v3 { 
   font-weight: 600;
 }
@@ -62,10 +89,6 @@ a {
   margin: 0.4rem 0;
 }
 
-.header-v2 {
-  font-weight: 400;
-  letter-spacing: 1px;
-}
 
 .button {
   cursor: pointer;
@@ -158,4 +181,13 @@ a {
 
 .w-full {
   width: 100%;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+.company-logo-url {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

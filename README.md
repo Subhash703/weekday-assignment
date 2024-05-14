@@ -1,20 +1,20 @@
-# Weekday Assignment
-This project is an assignment for Weekday Frontend Software Engineer role.
+### Weekday Assignment
+This project is an assignment for Weekday Frontend Software Engineer role. 
+Please visit [Weekday Assigment](https://subhash-weekday-assignment.netlify.app)
 
-# This project is deployed 
-[Weekday Assigment](https://subhash-weekday-assignment.netlify.app)
-
-# To setup
+## To setup
 Clone the repository and In the project directory, you can run:
 ```sh
 npm install
 npm start
 ```
 
-# `npm run build`
+## Deployment
+This project is currently deployed at [Netlify](https://app.netlify.com)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Steps to deploy
+1. Build the application.
+```sh
+npm run build // To check if there are any warning or errors as it will fail the build.
+```
+2. Push your code to github and publish it on Netlify.
