@@ -12,3 +12,12 @@ export interface Job {
     companyName: string;
     logoUrl: string;
 }
+
+export interface FilterOptions {
+    roles?: string[];
+    noOfEmployees?: string;
+    experience?: string;
+    workFromOptions?: string[];
+    minBasePay?: string;
+    companyName?: string;
+}

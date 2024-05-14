@@ -989,6 +989,6 @@ export const empRanges = [
 
 export const expOptions = ["1","2","3","4","5","6","7","8","9","10"];
 
-export const workFromOptions = ["remote", "in-office", "hyrid"];
+export const workFromOptions = ["remote", "in-office", "hybrid"];
 
-export const minBasePayOptions = ["0L","10L","20L", "30L", "40L", "50L","60L", "70L", "80L"];
+export const minBasePayOptions = ["0","10","20", "30", "40", "50","60", "70", "80"];

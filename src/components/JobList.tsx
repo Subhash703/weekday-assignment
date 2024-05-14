@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../hooks';
-import { fetchJobs } from '../redux/jobs/jobSlice';
+import { fetchJobsWithFilters } from '../redux/jobs/jobSlice';
 import { RootState } from '../redux/store';
 import JobCard from './JobCard';
 import FormMultiAutoComplete from './FormMultiAutoComplete';
@@ -24,7 +24,18 @@ export default function JobList() {
 
   const dispatch = useAppDispatch();
   const fetchNextJobs = () => {
-    dispatch(fetchJobs({ limit: page * pageSize, offset: 0 }));
+    dispatch(fetchJobsWithFilters({ 
+      limit: page * pageSize, 
+      offset: 0, 
+      filters: { 
+        roles: filteredRoles,
+        noOfEmployees: filteredNoOfEmps,
+        experience: filtredExp,
+        workFromOptions: filteredWorkOptions,
+        minBasePay: filteredMinBasePay,
+        companyName: searchedCompany ?? ""
+      } 
+    }));
   };
 
   useEffect(() => {
@@ -54,11 +65,12 @@ export default function JobList() {
 
 
   useEffect(() => {
-    console.log("filteredRoles :: ", filteredRoles);
+    fetchNextJobs();
+    // eslint-disable-next-line
   }, [filteredRoles, filteredNoOfEmps, filtredExp, filteredWorkOptions, filteredMinBasePay, searchedCompany])
 
-  const getCapitalizedValue = (text: string) => {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+  const getCapitalizedValue = (text: string, postFix?: string) => {
+    return text.charAt(0).toUpperCase() + text.slice(1) + (postFix ? postFix : '');
   }
 
   const handleComapnySearch = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -68,75 +80,79 @@ export default function JobList() {
 
   return (
     <div className='job-list-wrapper'>
-      <div className="filter-view">
-        <div className="filter role-filter">
-          <FormMultiAutoComplete
-							id="role"
-							label="Roles"
-							options={roles}
-							getOptionLabel={(item) => getCapitalizedValue(item)}
-							onChange={(e, value) => setFilteredRoles(value)}
-							onTextChange={() => {}}
-							data={filteredRoles}
-							className="w-full"
-						/>
-        </div>
-        <div className="filter role-filter">
-          <FormSingleAutoComplete
-							id="noOfEmpls"
-							label="No of employees"
-							options={empRanges}
-							getOptionLabel={(item) => getCapitalizedValue(item)}
-							onChange={(e, value) => setFilteredNoOfEmps(value)}
-							onTextChange={() => {}}
-							data={filteredNoOfEmps}
-							className="w-full"
-						/>
-        </div>
-        <div className="filter role-filter">
-          <FormSingleAutoComplete
-							id="experience"
-							label="Experience"
-							options={expOptions}
-							getOptionLabel={(item) => getCapitalizedValue(item)}
-							onChange={(e, value) => setFilteredExp(value)}
-							onTextChange={() => {}}
-							data={filtredExp}
-							className="w-full"
-						/>
-        </div>
-        <div className="filter role-filter">
-          <FormMultiAutoComplete
-							id="workoption"
-							label="Working Options"
-							options={workFromOptions}
-							getOptionLabel={(item) => getCapitalizedValue(item)}
-							onChange={(e, value) => setFilteredWorkOptions(value)}
-							onTextChange={() => {}}
-							data={filteredWorkOptions}
-							className="w-full"
-						/>
-        </div>
-        <div className="filter role-filter">
-          <FormSingleAutoComplete
+      {(jobs.length === 0 && !loading) && "Can't find any Jobs"}
+      {
+        jobs &&
+        <div className="filter-view">
+          <div className="filter role-filter">
+            <FormMultiAutoComplete
+              id="role"
+              label="Roles"
+              options={roles}
+              getOptionLabel={(item) => getCapitalizedValue(item)}
+              onChange={(e, value) => setFilteredRoles(value)}
+              onTextChange={() => { }}
+              data={filteredRoles}
+              className="w-full"
+            />
+          </div>
+          <div className="filter role-filter">
+            <FormSingleAutoComplete
+              id="noOfEmpls"
+              label="No of employees"
+              options={empRanges}
+              getOptionLabel={(item) => getCapitalizedValue(item)}
+              onChange={(e, value) => setFilteredNoOfEmps(value)}
+              onTextChange={() => { }}
+              data={filteredNoOfEmps}
+              className="w-full"
+            />
+          </div>
+          <div className="filter role-filter">
+            <FormSingleAutoComplete
+              id="experience"
+              label="Experience"
+              options={expOptions}
+              getOptionLabel={(item) => getCapitalizedValue(item)}
+              onChange={(e, value) => setFilteredExp(value)}
+              onTextChange={() => { }}
+              data={filtredExp}
+              className="w-full"
+            />
+          </div>
+          <div className="filter role-filter">
+            <FormMultiAutoComplete
+              id="workoption"
+              label="Working Options"
+              options={workFromOptions}
+              getOptionLabel={(item) => getCapitalizedValue(item)}
+              onChange={(e, value) => setFilteredWorkOptions(value)}
+              onTextChange={() => { }}
+              data={filteredWorkOptions}
+              className="w-full"
+            />
+          </div>
+          <div className="filter role-filter">
+            <FormSingleAutoComplete
               id="basepay"
-							label="Minimum Base Pay Salary"
+              label="Minimum Base Pay Salary"
               options={minBasePayOptions}
-              getOptionLabel={(item: string) => getCapitalizedValue(item)}
+              getOptionLabel={(item: string) => getCapitalizedValue(item, 'L')}
               onChange={(e, value) => setFilteredMinBasePay(value)}
-              onTextChange={() => {}}
+              onTextChange={() => { }}
               data={filteredMinBasePay || ''}
               className="w-full mb-4"
             />
+          </div>
+          <div className="filter role-filter">
+            <CustomInputField
+              handleOnChange={handleComapnySearch}
+              placeholder="Search Company Name"
+              data={searchedCompany}
+            />
+          </div>
         </div>
-        <div className="filter role-filter">
-          <CustomInputField
-            handleOnChange={handleComapnySearch}
-            placeholder="Search Company Name"
-            data={searchedCompany}
-          />
-        </div>
-      </div>
+      }
       {loading && <div>Loading...</div>}
       {/* Jobs List */}
       {jobs && (
@@ -148,7 +164,6 @@ export default function JobList() {
           ))}
         </div>
       )}
-      {(jobs.length === 0 && !loading) && "Can't find any Jobs"}
     </div>
   );
 }
